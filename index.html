@@ -184,6 +184,39 @@ header.top { position: sticky; top: 0; z-index: 10; background: var(--field); bo
   .mail code { font-size: 17px; }
 }
 
+/* user guide accordions */
+.guide-box { margin-top: 24px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.guide-box > summary { cursor: pointer; padding: 18px 20px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; }
+.guide-box > summary::-webkit-details-marker { display: none; }
+.guide-box > summary::after { content: "+"; color: var(--sky); font-size: 22px; line-height: 1; }
+.guide-box[open] > summary::after { content: "\2212"; }
+.guide-list { display: grid; gap: 10px; padding: 0 16px 16px; }
+.g-sec { border: 1px solid var(--line); border-radius: 14px; background: var(--field); }
+.g-sec > summary, .g-sub > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 14px; }
+.g-sec > summary::-webkit-details-marker, .g-sub > summary::-webkit-details-marker { display: none; }
+.g-sec > summary { padding: 18px 20px; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+.g-sec > summary::after, .g-sub > summary::after { content: "+"; margin-left: auto; color: var(--sky); font-size: 24px; font-weight: 400; line-height: 1; }
+.g-sec[open] > summary::after, .g-sub[open] > summary::after { content: "\2212"; }
+.g-num { flex: none; width: 34px; height: 34px; border-radius: 10px; background: var(--blue); color: #fff; display: grid; place-items: center; font-size: 16px; }
+.g-sec-body { padding: 0 20px 20px; display: grid; gap: 10px; }
+.g-sub { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+@media (max-width: 560px) { .guide-list { padding: 0 10px 12px; } }
+.g-sub > summary { padding: 14px 16px; font-weight: 600; font-size: 16px; }
+.g-sub > summary::after { font-size: 20px; }
+.g-body { padding: 0 16px 16px; }
+.g-intro, .g-body { color: var(--muted); font-size: 15.5px; line-height: 1.6; }
+.g-intro p, .g-body p { margin: 0 0 10px; }
+.g-intro ul, .g-body ul { margin: 0 0 12px; padding-left: 20px; }
+.g-intro li, .g-body li { margin-bottom: 6px; }
+.g-intro strong, .g-body strong { color: var(--ink); }
+.g-body table, .g-intro table { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 14.5px; }
+.g-body th, .g-body td, .g-intro th, .g-intro td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.g-body th, .g-intro th { color: var(--ink); }
+@media (max-width: 560px) {
+  .g-sec > summary { padding: 16px; font-size: 17px; }
+  .g-sec-body { padding: 0 12px 14px; }
+}
+
 /* story (hidden until opened) */
 .story { padding: 0 0 56px; background: var(--surface); }
 .story details { border: 1px solid var(--line); border-radius: 14px; background: var(--field); }
@@ -208,6 +241,7 @@ footer img { height: 34px; width: auto; }
     <ul id="nav-links">
       <li><a href="#challenges">Challenges</a></li>
       <li><a href="#how">How it works</a></li>
+      <li><a href="#guide">User guide</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -273,8 +307,274 @@ footer img { height: 34px; width: auto; }
         <div class="step"><div class="n num">02</div><h3>Set up the session</h3><p>Choose the date, start and finish times, nets and changeover time, then add the players who have arrived.</p></div>
         <div class="step"><div class="n num">03</div><h3>Start the session</h3><p>Batting time is calculated and counts down in each net. Add players as they arrive and open or close nets as you go.</p></div>
       </div>
+      <details class="guide-box" id="guide">
+        <summary>User guide: step-by-step instructions</summary>
+        <div class="guide-list">
+<details class="g-sec"><summary><span class="g-num">1</span>Getting started</summary><div class="g-sec-body"><div class="g-intro"><p>The first time you open Cricket Training Timer, three short screens set up your club: create your club, add players, and save your session defaults.</p></div><details class="g-sub"><summary>Create New Club</summary><div class="g-body"><p><strong>Welcome to Cricket Training Timer</strong></p>
+<ul>
+<li><p><strong>Enter Club Name</strong></p></li>
+<li><p><strong>Enter Name (Optional)</strong></p></li>
+</ul>
+<p><strong>No account needed.</strong> Your club name and your name are only used to personalise the app on your phone. They aren’t used to create an account, and they’re never sent anywhere. There’s no sign-up, no password and no email.</p></div></details><details class="g-sub"><summary>Add Players</summary><div class="g-body"><ul>
+<li><p><strong>Add me (Name) as a player (toggle):</strong> turn this on if you’re having a hit too. Leave it off if you’re just running the session.</p></li>
+<li><p><strong>Enter Player Name</strong>, then tap <strong>Add Player</strong>.</p></li>
+</ul>
+<p>Add as many players as you like to your club list. The free version allows up to 6 players per session, and Pro unlocks unlimited players.</p>
+<p><strong>Add players at any time.</strong> You don’t need everyone added upfront. You can also add players when setting up a session, or during the session as they arrive.</p>
+<p><strong>Skip for now:</strong> tap this if you want to add players later.</p></div></details><details class="g-sub"><summary>Save Defaults</summary><div class="g-body"><p>These are your usual training settings. Every new session starts with them, and you can change them for any single session.</p>
+<p><strong>Session</strong></p>
+<ul>
+<li><p><strong>Default Start Time:</strong> select your usual training session start time.</p></li>
+<li><p><strong>Session Length:</strong> select your usual training session length (minutes).</p></li>
+<li><p><strong>Live Batting Starts:</strong> choose when live batting time begins.</p>
+<ul>
+<li><p><strong>At session start:</strong> batting begins as soon as the session starts.</p></li>
+<li><p><strong>After session start:</strong> batting begins a set number of minutes after the session starts, leaving time for warm-ups or drills first.</p></li>
+<li><p><strong>Minimum players:</strong> each net opens automatically once enough players have arrived, and batting starts when the first net opens.</p></li>
+</ul></li>
+</ul>
+<p><strong>Nets</strong></p>
+<ul>
+<li><p><strong>Number of Nets:</strong> the total number of nets available to use at training.</p></li>
+<li><p><strong>Open at Start:</strong> how many of those nets are in use when batting begins. You can open or close nets during the session, and batting times update automatically.</p></li>
+<li><p><strong>Sync Nets (toggle):</strong> when this is on, changeovers happen at the same time in every net. You can turn it on or off during the session from the live screen. For example, if you start training with one net and open a second as more players arrive, you can turn it on so both nets change over together.</p></li>
+<li><p><strong>Auto-assign &amp; balance players (toggle):</strong> when this is on, each player who arrives is automatically assigned to the net where they’ll bat soonest, and the queues are kept even across nets. When it’s off, you assign each player to a net yourself. Either way, you can move players between nets at any time.</p></li>
+</ul>
+<p><strong>Pad-Up &amp; Changeover</strong></p>
+<ul>
+<li><p><strong>Changeover Time (toggle):</strong> adds a short break between batters, for example 30 seconds. It lets the finishing batter leave the net safely while the next batter walks in and takes guard.</p></li>
+<li><p><strong>Pad-Up Time:</strong> how many minutes’ warning the next batter gets before their turn. The app alerts you so the next batter has time to pad up and be ready at the net, with no waiting between batters. At the start of a session, the first batters get this time to pad up before batting begins.</p></li>
+</ul>
+<p><strong>Individual Batting Time Limits</strong></p>
+<ul>
+<li><strong>Limit Individual Batting Time (toggle), Minimum and Maximum:</strong> set the shortest and longest time each player should bat, for example 8 to 12 minutes. The app keeps each turn within these limits. If there isn’t enough time for everyone to reach the minimum, everyone still gets a turn, with the time shared as evenly as possible.</li>
+</ul>
+<p><strong>Batting Time Calculation</strong></p>
+<ul>
+<li><p><strong>Recalculate every:</strong> how often the app updates batting times during the session, for example every 5 minutes, so they stay accurate as time passes.</p></li>
+<li><p><strong>Also recalculate when players or nets change (toggle):</strong> when this is on, batting times also update straight away whenever a player arrives or leaves, or a net opens or closes. Leave it on for the most up-to-date times. Updates apply to the next batter in. Anyone already batting keeps the time they started with.</p></li>
+</ul>
+<p>Tap <strong>Save Defaults</strong> to finish. You’ll land on your club home screen.</p></div></details></div></details>
+<details class="g-sec"><summary><span class="g-num">2</span>Club home</summary><div class="g-sec-body"><div class="g-intro"><p>The club home screen shows your club name and a welcome with your name. Everything in the app starts from here.</p>
+<ul>
+<li><p><strong>Resume Session:</strong> only shows when a session is running. It shows the date, start and finish times, and how many players are at training. Tap it to go back to the live screen.</p></li>
+<li><p><strong>Start New Training Session:</strong> set up a new session (date, times, nets and players).</p></li>
+<li><p><strong>Manage Players:</strong> add, rename or remove players in your club list. It shows how many club players you have.</p></li>
+<li><p><strong>View Reports:</strong> see past sessions and attendance. It shows how many sessions have been recorded.</p></li>
+<li><p><strong>Settings:</strong> your session defaults, club details, Pro and privacy.</p></li>
+</ul>
+<p><strong>Starting a new session while one is running.</strong> You’ll be asked what to do with the current session:</p>
+<ul>
+<li><p><strong>Resume Current Session:</strong> go back to the live screen.</p></li>
+<li><p><strong>End It &amp; Start New:</strong> ends the current session, saves it to your reports, and opens a new session setup.</p></li>
+<li><p><strong>Cancel:</strong> stay on the home screen.</p></li>
+</ul></div></div></details>
+<details class="g-sec"><summary><span class="g-num">3</span>Starting a training session</summary><div class="g-sec-body"><div class="g-intro"><p>Tap <strong>Start New Training Session</strong>. The New Session screen is filled in from your saved defaults, so most nights you only need to add who’s there and tap <strong>Start Session</strong>.</p></div><details class="g-sub"><summary>Session</summary><div class="g-body"><ul>
+<li><p><strong>Date:</strong> the day of training. Today is selected.</p></li>
+<li><p><strong>Start:</strong> when the session starts.</p></li>
+<li><p><strong>Finish:</strong> when the session ends. The session length is shown underneath, for example “2 h session”.</p></li>
+</ul></div></details><details class="g-sub"><summary>Players here now</summary><div class="g-body"><p>Tap <strong>Add Players</strong> to open your club list.</p>
+<ul>
+<li><p>Tick each player who is at training. The number next to each name (#1, #2 and so on) shows the order you ticked them, which is the order they’ll bat.</p></li>
+<li><p>Use the search bar to find a player quickly.</p></li>
+<li><p>New to the club? Type their name under <strong>New player</strong> and tap <strong>Add</strong>. They’re added to your club list and ticked for this session.</p></li>
+<li><p>Tap <strong>Done</strong> to return. The count shows how many players you’ve picked.</p></li>
+</ul>
+<p>On the New Session screen, tap <strong>Edit</strong> to drag players into a different order or remove them. You don’t need everyone here yet. Add others as they arrive.</p></div></details><details class="g-sub"><summary>Session settings</summary><div class="g-body"><p>This row shows a one-line summary of the settings this session will use, for example “Batting at start · 2 of 2 nets open · 30 sec changeover”. Tap it to change anything for this session only.</p>
+<ul>
+<li><p><strong>Batting starts:</strong> At start, Set time (choose the time batting begins), or By players (choose how many players are needed to open each net).</p></li>
+<li><p><strong>Nets available</strong> and <strong>Open at start</strong></p></li>
+<li><p><strong>Changeover between batters</strong> and the changeover length (seconds)</p></li>
+<li><p><strong>Synchronise nets</strong></p></li>
+<li><p><strong>Make these my usual settings:</strong> turn this on to save these changes as your defaults for future sessions.</p></li>
+</ul></div></details><details class="g-sub"><summary>Start the session</summary><div class="g-body"><p>Before you start, the app shows roughly how long each player will bat, for example “Batting time each: about 12:30”.</p>
+<p>Tap <strong>Start Session</strong> to go to the live screen.</p>
+<p>If the button can’t be tapped, a short message above it tells you why:</p>
+<ul>
+<li><p>No players have been added yet.</p></li>
+<li><p>The finish time is before the start time, or has already passed.</p></li>
+<li><p>A set batting start time is outside the session times.</p></li>
+</ul>
+<p>If the session uses more than 1 net or more than 6 players on the free version, the button reads <strong>Unlock Pro to Start</strong>. See section 7.</p></div></details></div></details>
+<details class="g-sec"><summary><span class="g-num">4</span>Live session</summary><div class="g-sec-body"><div class="g-intro"><p>The live screen runs the whole session: the session clock at the top, a card for each open net, then the full player list. The top-right buttons are <strong>Add Players</strong> and <strong>Adjust Session</strong>.</p></div><details class="g-sub"><summary>Session clock</summary><div class="g-body"><p>The large timer shows <strong>Session time remaining</strong>, with a bar that fills as the session goes. Once the finish time passes it reads <strong>Past finish time</strong>.</p>
+<p>If you’ve set a minimum batting time and there isn’t enough time left for everyone to reach it, an orange note appears: everyone gets an equal turn below the minimum so nobody misses out.</p></div></details><details class="g-sub"><summary>Before batting begins</summary><div class="g-body"><p>Until live batting starts, a card shows when it will begin:</p>
+<ul>
+<li><p><strong>Batting starts (time):</strong> the first batters pad up, then enter the net.</p></li>
+<li><p><strong>Waiting for players (3 of 4):</strong> shown when batting starts by players. Net 1 opens when the set number of players have arrived.</p></li>
+</ul>
+<p>Tap <strong>Start Now</strong> to begin batting straight away.</p></div></details><details class="g-sub"><summary>Synchronise nets</summary><div class="g-body"><p>Turn this on so every open net uses the same batting time and changes over together. If you turn it on mid-session, the nets line up within one batter’s turn, and the card shows the time they’ll all change over.</p></div></details><details class="g-sub"><summary>Net cards</summary><div class="g-body"><p>Each open net has its own card. Swipe sideways if you have more nets than fit on the screen.</p>
+<ul>
+<li><p><strong>Time remaining:</strong> the countdown for the current batter.</p></li>
+<li><p><strong>Batting, Next, Then:</strong> who’s in now and who’s coming up. Tap <strong>+ more</strong> to see the full batting order for that net.</p></li>
+<li><p><strong>Status button (Open, Closing, Closed):</strong> tap it to close or reopen the net.</p></li>
+<li><p><strong>Pad up / Changeover:</strong> shown between turns, with a countdown to the next batter.</p></li>
+</ul>
+<p>The <strong>•••</strong> menu on each net has:</p>
+<ul>
+<li><p><strong>Next Batsman:</strong> ends the current turn and sends in the next batter.</p></li>
+<li><p><strong>Show full batting order</strong></p></li>
+<li><p><strong>Add another net</strong></p></li>
+<li><p><strong>How batting time is worked out:</strong> shows the batting time locked in for the next batter in any net.</p></li>
+</ul>
+<p><strong>Changing the order in a net.</strong> Tap a player in the net card for these options:</p>
+<ul>
+<li><p><strong>Move up, Move down, Make next in:</strong> reorder players who are waiting.</p></li>
+<li><p><strong>Bat now:</strong> sends a waiting player in straight away. The current batter’s turn ends and they become next in.</p></li>
+<li><p><strong>End turn — Next Batsman:</strong> for the player batting now.</p></li>
+<li><p><strong>Bat again:</strong> gives a finished player another turn.</p></li>
+<li><p><strong>Remove from net</strong> or <strong>Check out (left training)</strong></p></li>
+</ul>
+<p>If a change would cut short someone’s turn, the app asks you to confirm first. Only do this if needed, for example an injury or a player who has to leave.</p></div></details><details class="g-sub"><summary>Opening and closing nets</summary><div class="g-body"><ul>
+<li><p><strong>Add Net / Open Another Net:</strong> opens a closed net, or adds a new one if all nets are open.</p></li>
+<li><p><strong>Close a net:</strong> tap its status button, then choose <strong>Close after current batter</strong> (the net shows Closing until their time ends) or <strong>Close now</strong> (their turn ends straight away). Waiting players move to the other open nets.</p></li>
+</ul>
+<p>Batting times update automatically whenever a net opens or closes.</p></div></details><details class="g-sub"><summary>Players list</summary><div class="g-body"><p>The list below the nets shows every player at training, with their status and net.</p>
+<table style="width:98%;">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Status</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Batting now</td>
+<td style="text-align: left;">In a net now</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Next in ~6:42</td>
+<td style="text-align: left;">Next to bat in their net, with an estimated start time</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">In queue ~6:55</td>
+<td style="text-align: left;">Waiting, with an estimated start time</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No net yet</td>
+<td style="text-align: left;">At training but not assigned to a net</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Net closed</td>
+<td style="text-align: left;">Assigned to a net that has closed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Finished · 12:30</td>
+<td style="text-align: left;">Has batted, with their total batting time</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Left</td>
+<td style="text-align: left;">Checked out of training</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>Add Player:</strong> tick players as they arrive. They’re added to the end of the queue and batting times update.</p></li>
+<li><p><strong>Net drop-down:</strong> choose which net a player bats in, or <strong>Remove from net</strong>.</p></li>
+<li><p><strong>Put 2 waiting players into nets:</strong> appears when players have no net. Tap it to assign them all at once.</p></li>
+<li><p><strong>••• menu:</strong> <strong>Check out (left training)</strong> when someone leaves, <strong>Back at training</strong> if they return, or <strong>Bat again</strong> for a finished player.</p></li>
+</ul></div></details><details class="g-sub"><summary>Alerts</summary><div class="g-body"><p>The app alerts you when:</p>
+<ul>
+<li><p>The next batter needs to pad up, with their net and an approximate start time.</p></li>
+<li><p>A batter’s time is up, followed by the changeover countdown.</p></li>
+<li><p>The session end time is reached.</p></li>
+</ul>
+<p>Allow notifications when the app asks, so alerts still reach you when your phone is locked.</p></div></details><details class="g-sub"><summary>Adjust Session</summary><div class="g-body"><p>Tap <strong>Adjust Session</strong> (top right) to change this session while it’s running: the session end time, the live batting start time, pad-up and changeover times, Synchronise nets, Auto-assign &amp; balance players, individual batting time limits, and how often batting times are recalculated. Tap <strong>Apply</strong> to save.</p>
+<p>Changing the end time updates the batting time for the next batters. Anyone already batting keeps the time they started with.</p></div></details><details class="g-sub"><summary>When everyone has batted</summary><div class="g-body"><p>When every player in the open nets has finished, the app asks what to do next:</p>
+<ul>
+<li><p><strong>Another Round:</strong> everyone bats again in the open nets.</p></li>
+<li><p><strong>Add Players:</strong> add more players.</p></li>
+<li><p><strong>Close Session:</strong> end the session.</p></li>
+<li><p><strong>Not Now:</strong> keep the session open.</p></li>
+</ul></div></details><details class="g-sub"><summary>When the end time is reached</summary><div class="g-body"><p>Choose <strong>Extend 15 min</strong>, <strong>Extend 30 min</strong>, <strong>End Session</strong> or <strong>Continue</strong>.</p></div></details><details class="g-sub"><summary>Ending the session</summary><div class="g-body"><p>Tap <strong>End Session</strong> at the bottom of the screen and confirm. Batting times are saved to Reports.</p></div></details></div></details>
+<details class="g-sec"><summary><span class="g-num">5</span>Manage players</summary><div class="g-sec-body"><div class="g-intro"><p><strong>Player Management</strong> holds your full club list. Players you add here are ready to tick at any session.</p>
+<ul>
+<li><p><strong>Add New Player (+):</strong> enter a <strong>Name</strong>, an optional <strong>Email</strong>, and a <strong>Role</strong> (Player, Coach or Session Manager). Tap <strong>Save</strong>.</p></li>
+<li><p><strong>Edit:</strong> swipe left on a player and tap <strong>Edit</strong>, or press and hold their name.</p></li>
+<li><p><strong>Delete:</strong> swipe left on a player and tap <strong>Delete</strong>.</p></li>
+<li><p><strong>Search:</strong> pull down to show the search bar, then search by name or email.</p></li>
+</ul>
+<p>A cricket icon next to a name means that player is at the current training session.</p>
+<p><strong>Adding players to a session from here.</strong> While a session is running, tap <strong>Edit</strong>, select players, then tap <strong>Add (number) to current session</strong> at the bottom of the screen.</p></div></div></details>
+<details class="g-sec"><summary><span class="g-num">6</span>Reports</summary><div class="g-sec-body"><div class="g-intro"><p>Every session you end is saved to <strong>Statistics and Reports</strong>. Tap <strong>View Reports</strong> on the club home screen to open it.</p>
+<ul>
+<li><p><strong>Season:</strong> show one season, or All seasons.</p></li>
+<li><p><strong>Summary:</strong> training sessions, total attendance, total live batting time, and average players per session.</p></li>
+<li><p><strong>Training sessions:</strong> each session with its date, times, players and nets used. Tap one for the full session report: scheduled and actual end times, attendance, total and average batting time, and each player’s arrival time, departure time and batting time. Swipe left on a session to delete it.</p></li>
+<li><p><strong>Players:</strong> each player’s sessions attended, total batting time and average per session.</p></li>
+</ul></div><details class="g-sub"><summary>Export to CSV (Pro)</summary><div class="g-body"><p>Tap <strong>Export to CSV</strong> to share a spreadsheet file of your reports, for example by email, AirDrop or to the Files app. You can export the whole season from the reports screen, or one session from its session report. The file opens in Excel, Numbers or Google Sheets.</p></div></details></div></details>
+<details class="g-sec"><summary><span class="g-num">7</span>Settings and Pro</summary><div class="g-sec-body"><details class="g-sub"><summary>Settings</summary><div class="g-body"><p>Tap <strong>Settings</strong> on the club home screen.</p>
+<ul>
+<li><p><strong>Session defaults:</strong> the same settings you chose in Save Defaults (section 1). New training sessions use these.</p></li>
+<li><p><strong>Club:</strong> change your club name or your name.</p></li>
+<li><p><strong>Save Settings:</strong> tap this after making changes.</p></li>
+<li><p><strong>Privacy:</strong> what the app stores and what it doesn’t.</p></li>
+<li><p><strong>About:</strong> the app version.</p></li>
+<li><p><strong>Delete All Data:</strong> permanently deletes your club, players, settings, any session in progress and all reports from this phone. It can’t be undone, so export any reports you want to keep first.</p></li>
+</ul></div></details><details class="g-sub"><summary>Free and Pro</summary><div class="g-body"><table style="width:97%;">
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 14%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: left;">Free</th>
+<th style="text-align: left;">Pro</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nets per session</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Unlimited</td>
+</tr>
+<tr class="even">
+<td>Players per session</td>
+<td style="text-align: left;">Up to 6</td>
+<td style="text-align: left;">Unlimited</td>
+</tr>
+<tr class="odd">
+<td>Live countdowns and next batsman alerts</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td>Session reports</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="odd">
+<td>Export reports to CSV</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Pro is a one-off purchase through the App Store, with no subscription.</p>
+<ul>
+<li><p><strong>Unlock Pro:</strong> in Settings, or whenever you go past a free limit (for example opening a second net or adding a seventh player).</p></li>
+<li><p><strong>Restore Purchases:</strong> on a new phone, or after reinstalling the app, tap this in Settings to unlock Pro again at no charge. Use the same Apple ID you bought it with.</p></li>
+</ul></div></details></div></details>
+<details class="g-sec"><summary><span class="g-num">8</span>Tips and troubleshooting</summary><div class="g-sec-body"><div class="g-intro"><p><strong>Do players need the app?</strong> No. One phone runs the whole session.</p>
+<p><strong>Does it need internet?</strong> No. Sessions run entirely on your phone, so poor reception at the ground isn’t a problem.</p>
+<p><strong>I’m not getting alerts.</strong> Check that notifications are on for Cricket Training Timer in your iPhone’s Settings app, and that Focus or Do Not Disturb isn’t silencing them.</p>
+<p><strong>I closed the app by mistake.</strong> Your session keeps running. Open the app and tap <strong>Resume Session</strong> on the club home screen.</p>
+<p><strong>A player arrived late.</strong> Tap <strong>Add Player</strong> on the live screen. They join the queue and batting times update.</p>
+<p><strong>A player has to leave early.</strong> Use <strong>Check out (left training)</strong> from the player’s ••• menu. If they come back, choose <strong>Back at training</strong>.</p>
+<p><strong>We’re running out of time.</strong> Use <strong>Adjust Session</strong> to change the end time, or choose <strong>Extend 15 min</strong> or <strong>Extend 30 min</strong> when the end time is reached.</p>
+<p><strong>I can’t start the session.</strong> Read the message above the Start button. It tells you what needs fixing, such as adding at least one player or choosing a finish time that hasn’t passed.</p>
+<p><strong>Where is my data stored?</strong> Only on your phone. There’s no account, no tracking and no ads. Your data may be included in your own iCloud or computer backup.</p>
+<p><strong>Need more help?</strong> Email jace_kayne@hotmail.com.</p></div></div></details>
+        </div>
+      </details>
     </div>
   </section>
+
 
   <section class="features" id="features">
     <div class="wrap">
@@ -418,6 +718,9 @@ footer img { height: 34px; width: auto; }
   });
   links.addEventListener("click", function (e) {
     if (e.target.tagName === "A") { links.classList.remove("open"); mb.setAttribute("aria-expanded", "false"); }
+  });
+  document.querySelectorAll('a[href="#guide"]').forEach(function (l) {
+    l.addEventListener("click", function () { document.getElementById("guide").open = true; });
   });
   var btn = document.getElementById("copy");
   btn.addEventListener("click", function () {
