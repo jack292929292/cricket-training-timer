@@ -39,7 +39,7 @@ h2 { font-size: clamp(36px, 5vw, 56px); }
 h3 { font-size: 22px; letter-spacing: -0.01em; }
 .kicker { font-family: var(--display); font-weight: 700; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--sky); margin: 0 0 12px; }
 .lede { color: var(--muted); max-width: 60ch; font-size: 19px; margin: 18px 0 0; }
-section { padding: 96px 0; }
+section { padding: 52px 0 80px; }
 .num { font-family: var(--display); font-variant-numeric: tabular-nums; }
 
 /* nav */
@@ -73,7 +73,7 @@ header.top { position: sticky; top: 0; z-index: 10; background: var(--field); bo
 .badge.sm img { height: 44px; }
 
 /* hero */
-.hero { padding: 72px 0 40px; position: relative; overflow: hidden; }
+.hero { padding: 44px 0 40px; position: relative; overflow: hidden; }
 .hero { background: linear-gradient(180deg, var(--field), var(--deep)); }
 .hero::before { content: ""; position: absolute; inset: -20% -10% auto 40%; height: 900px; background: radial-gradient(closest-side, rgba(0,136,255,.35), transparent); pointer-events: none; }
 .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; position: relative; }
@@ -166,9 +166,9 @@ header.top { position: sticky; top: 0; z-index: 10; background: var(--field); bo
 
 /* phones */
 @media (max-width: 560px) {
-  section { padding: 64px 0; }
+  section { padding: 36px 0 56px; }
   .wrap { width: calc(100% - 32px); }
-  .hero { padding: 40px 0 24px; }
+  .hero { padding: 28px 0 24px; }
   .hero .lede { font-size: 18px; }
   .lede { font-size: 17px; }
   .stage .front { width: min(220px, 58vw); }
@@ -217,6 +217,17 @@ header.top { position: sticky; top: 0; z-index: 10; background: var(--field); bo
   .g-sec-body { padding: 0 12px 14px; }
 }
 
+.panels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
+.panels-after { margin-top: 32px; font-size: 21px; color: var(--ink); max-width: 64ch; }
+.panel { margin: 0; border-radius: 16px; overflow: hidden; background: #0a7cf0; box-shadow: 0 20px 44px rgba(0,0,0,.4), 0 0 0 1px rgba(167,221,253,.25); position: relative; }
+.panel figcaption { position: relative; display: flex; align-items: center; gap: 10px; padding: 13px 14px; background: linear-gradient(115deg, #ff9a5a 0%, #ff6a2b 100%); overflow: hidden; }
+.panel figcaption::after { content: ""; position: absolute; top: 0; bottom: 0; left: -40%; width: 40%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg); }
+.panel .pn { flex: none; width: 32px; height: 32px; border-radius: 9px; background: #081d4e; color: #ffb08a; display: grid; place-items: center; font-weight: 700; font-size: 14px; letter-spacing: 0; }
+.panel .pt { font-size: 21px; font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: .01em; line-height: 1.05; color: #fff; text-shadow: 0 2px 0 rgba(120,40,0,.35); }
+.panel img { width: 100%; height: auto; aspect-ratio: 259 / 261; object-fit: cover; display: block; }
+@media (max-width: 1100px) { .panel .pt { font-size: 18px; } }
+@media (max-width: 760px) { .panels { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 28px; } .panel figcaption { padding: 10px; gap: 8px; min-height: 60px; } .panel .pn { width: 26px; height: 26px; font-size: 12px; border-radius: 7px; } .panel .pt { font-size: 15px; } }
+
 /* story (hidden until opened) */
 .story { padding: 0 0 56px; background: var(--surface); }
 .story details { border: 1px solid var(--line); border-radius: 14px; background: var(--field); }
@@ -231,6 +242,237 @@ footer { padding: 32px 0; color: var(--muted); font-size: 14px; border-top: 1px 
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
 footer img { height: 34px; width: auto; }
 .get { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 28px; }
+/* ===== v2 modern layer ===== */
+section { position: relative; }
+#importance::before, #challenges::before, #solution::before, #how::before, #features::before, #privacy::before, #faq::before, #contact::before, .foot2::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: min(560px, 70%); height: 1px; background: linear-gradient(90deg, transparent, rgba(0,136,255,.9), transparent); box-shadow: 0 0 18px rgba(0,136,255,.8); }
+h2 { font-size: clamp(34px, 4.6vw, 54px); }
+h2 em { font-style: normal; color: var(--sky); }
+.hero h1 span { color: var(--sky); }
+.hero h1 { font-size: clamp(48px, 6.6vw, 84px); }
+.proof { display: flex; flex-wrap: wrap; gap: 8px 18px; max-width: 560px; margin: 22px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 15px; }
+.proof li { display: flex; align-items: center; gap: 8px; }
+.proof li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #3ddc84; box-shadow: 0 0 10px #3ddc84; }
+.live { position: absolute; left: 0; bottom: 34px; z-index: 3; background: rgba(13,39,102,.92); backdrop-filter: blur(8px); border: 1px solid rgba(167,221,253,.35); border-radius: 18px; padding: 14px 18px; min-width: 210px; box-shadow: 0 24px 50px rgba(0,0,0,.5); }
+.live .row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.live .dot { width: 8px; height: 8px; border-radius: 50%; background: #ff4d4d; box-shadow: 0 0 0 0 rgba(255,77,77,.7); animation: pulse 1.6s infinite; display: inline-block; margin-right: 6px; }
+.live .t { font-size: 46px; font-weight: 700; color: var(--sky); letter-spacing: -0.02em; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.live .nx { font-size: 14px; color: var(--ink); }
+.live .nx b { color: var(--warn); }
+.live.alert { border-color: var(--warn); }
+.live.alert .nx b { animation: blink .8s steps(2) infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(255,77,77,0); } 100% { box-shadow: 0 0 0 0 rgba(255,77,77,0); } }
+@keyframes blink { 50% { opacity: .35; } }
+@media (max-width: 860px) { .stage { flex-wrap: wrap; } .live { position: relative; left: auto; bottom: auto; flex-basis: 100%; max-width: 280px; margin: -36px auto 0; } .live .t { font-size: 38px; } }
+/* before/after */
+.ba { background: linear-gradient(180deg, var(--deep), var(--field)); }
+.ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 36px; }
+@media (max-width: 860px) { .ba-grid { grid-template-columns: 1fr; } }
+.ba-card { border-radius: 22px; padding: 24px; background: var(--surface); border: 1px solid var(--line); }
+.ba-card.good { border: 2px solid var(--blue); background: linear-gradient(180deg, #123a8a, var(--surface)); }
+.ba-card h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+.ba-card h3 small { font-size: 14px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.ba-stat { display: flex; gap: 18px; margin-top: 14px; color: var(--muted); font-size: 15px; flex-wrap: wrap; }
+.ba-stat b { color: var(--ink); font-size: 22px; margin-right: 4px; }
+.ba-stat .o { color: var(--warn); } .ba-stat .s { color: var(--sky); }
+.ba-how { margin-top: 20px; padding: 14px 18px; border-left: 3px solid var(--sky); background: rgba(13,39,102,.6); border-radius: 0 12px 12px 0; color: var(--muted); max-width: 80ch; }
+.ba-how b { color: var(--ink); }
+.ba-card h3.with { justify-content: flex-start; align-items: center; gap: 12px; }
+.ba-card h3.with img { height: 30px; width: auto; }
+.ba-note { margin: 10px 0 0; color: var(--muted); font-size: 15px; }
+.ba-stat b { margin-left: 4px; }
+.ba-foot { margin-top: 26px; color: var(--ink); font-size: 20px; font-weight: 600; max-width: 60ch; }
+.bar { transform-box: fill-box; transform-origin: bottom; }
+.js .ba-card .bar { transform: scaleY(0); transition: transform .6s cubic-bezier(.2,.8,.2,1) var(--d); }
+.js .ba-card.in .bar { transform: scaleY(1); }
+/* how it works with screens */
+.how3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
+@media (max-width: 860px) { .how3 { grid-template-columns: 1fr; } }
+.how3 .st { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 24px 24px 0; overflow: hidden; display: flex; flex-direction: column; }
+.how3 .n { font-size: 15px; font-weight: 700; color: #fff; background: var(--blue); width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; }
+.how3 h3 { margin: 16px 0 6px; font-size: 22px; }
+.how3 p { margin: 0; color: var(--muted); }
+.how3 .shot { margin: 22px auto 0; width: 74%; aspect-ratio: 1 / 1.15; overflow: hidden; }
+.how3 .shot img { width: 100%; height: auto; display: block; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5)); }
+.how3 .st { padding-bottom: 0; }
+/* features */
+.big4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
+@media (max-width: 960px) { .big4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .big4 { grid-template-columns: 1fr; } }
+.bf { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 26px 24px; }
+.bf svg { width: 60px; height: 60px; padding: 14px; border-radius: 16px; color: #fff; background: linear-gradient(140deg, #3ba3ff, #0062d6); box-shadow: 0 10px 24px rgba(0,136,255,.35); }
+.bf h3 { font-size: 21px; margin: 18px 0 8px; }
+.bf p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.more { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+@media (max-width: 960px) { .more { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .more { grid-template-columns: 1fr; } }
+.more div { display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 16px; border: 1px solid var(--line); background: rgba(13,39,102,.5); font-size: 14.5px; color: var(--muted); }
+.more svg { width: 22px; height: 22px; flex: none; color: var(--sky); margin-top: 2px; }
+.more b { display: block; color: var(--ink); font-size: 15.5px; }
+.more-label { margin-top: 30px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--sky); }
+/* fairness check banner */
+.fc { padding: 0 0 80px; }
+.fc-card { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: center; border-radius: 26px; padding: 40px; background: radial-gradient(400px 260px at 90% 10%, rgba(255,255,255,.25), transparent 70%), linear-gradient(120deg, #0a8cff, #0050c0); box-shadow: 0 30px 70px rgba(0,60,160,.45); }
+@media (max-width: 860px) { .fc-card { grid-template-columns: 1fr; padding: 28px 22px; } }
+.fc-card .kicker { color: #dff1ff; }
+.fc-card h2 { font-size: clamp(28px, 3.6vw, 42px); }
+.fc-card p { color: #e6f1ff; font-size: 18px; margin: 14px 0 0; }
+.fc-list { list-style: none; margin: 0; padding: 20px; border-radius: 18px; background: rgba(6,22,65,.35); display: grid; gap: 12px; }
+.fc-list li { display: flex; gap: 12px; align-items: center; font-weight: 600; }
+.fc-list li span { flex: none; width: 28px; height: 28px; border-radius: 8px; background: #fff; color: #0062d6; display: grid; place-items: center; font-size: 14px; }
+.btn-white { background: #fff; color: #0050c0; margin-top: 22px; }
+.btn-white:hover { background: #eaf4ff; }
+/* privacy, faq, contact, footer */
+.pv3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+@media (max-width: 860px) { .pv3 { grid-template-columns: 1fr; } }
+.pv { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 26px 24px; }
+.pv svg { width: 56px; height: 56px; padding: 14px; border-radius: 16px; color: #fff; background: linear-gradient(140deg, #3ba3ff, #0062d6); box-shadow: 0 10px 24px rgba(0,136,255,.35); }
+.pv h3 { font-size: 20px; margin: 18px 0 6px; }
+.pv p { margin: 0; color: var(--muted); }
+.faq2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+@media (max-width: 760px) { .faq2 { grid-template-columns: 1fr; } }
+.faq2 > div { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; }
+.faq2 h3 { font-size: 18px; letter-spacing: 0; line-height: 1.35; display: flex; gap: 10px; }
+.faq2 h3::before { content: "Q"; flex: none; width: 26px; height: 26px; border-radius: 8px; background: var(--blue); color: #fff; font-size: 13px; display: grid; place-items: center; margin-top: -1px; }
+.faq2 p { margin: 10px 0 0 36px; color: var(--muted); }
+.ct { display: grid; grid-template-columns: 1.2fr .8fr; gap: 36px; align-items: center; background: linear-gradient(180deg, #123a8a, var(--surface)); border: 1px solid var(--line); border-radius: 26px; padding: 40px; }
+@media (max-width: 860px) { .ct { grid-template-columns: 1fr; padding: 28px 22px; } }
+.ct .links a { background: var(--field); }
+.story2 { margin-top: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.story2 summary { cursor: pointer; padding: 18px 22px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; }
+.story2 summary::-webkit-details-marker { display: none; }
+.story2 summary::after { content: "+"; color: var(--sky); font-size: 22px; line-height: 1; }
+.story2[open] summary::after { content: "\2212"; }
+.story2 .body { padding: 0 22px 20px; color: var(--muted); max-width: 72ch; }
+.story2 .body p { margin: 0 0 12px; }
+.foot2 { position: relative; padding: 40px 0; border-top: 0; background: var(--deep); color: var(--muted); font-size: 14px; }
+.foot2 .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 28px; }
+.foot2 img { height: 38px; width: auto; }
+.foot2 nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.foot2 nav a { color: var(--muted); text-decoration: none; font-weight: 600; }
+.foot2 nav a:hover { color: var(--ink); }
+.pv, .faq2 > div { transition: transform .25s ease, box-shadow .25s ease; }
+.pv:hover, .faq2 > div:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,.35); }
+/* hover lift */
+.panel, .ba-card, .how3 .st, .bf, .plan, .more div { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.panel:hover, .how3 .st:hover, .bf:hover, .plan:hover { transform: translateY(-6px); box-shadow: 0 26px 50px rgba(0,0,0,.4); }
+.more div:hover { border-color: var(--sky); }
+/* reveal on scroll */
+.js .rv { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); transition-delay: var(--rd, 0ms); }
+.js .rv.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .js .rv, .js .ba-card .bar { opacity: 1 !important; transform: none !important; transition: none !important; } .live .dot, .live.alert .nx b { animation: none; } }
+
+
+/* importance + how body + tips */
+.body { color: var(--muted); font-size: 17px; line-height: 1.65; margin: 14px 0 0; max-width: 62ch; }
+.body.strong { color: var(--ink); font-weight: 600; }
+.ab-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+@media (max-width: 900px) { .ab-grid { grid-template-columns: 1fr; gap: 32px; } }
+.about { background: linear-gradient(180deg, var(--deep), var(--field)); }
+.about .lede { font-size: 19px; }
+.cycle { display: grid; }
+.cy { display: flex; gap: 16px; align-items: center; padding: 20px 22px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); }
+.cy svg { width: 52px; height: 52px; flex: none; padding: 13px; border-radius: 15px; color: #fff; background: linear-gradient(140deg, #3ba3ff, #0062d6); box-shadow: 0 10px 24px rgba(0,136,255,.35); }
+.cy span { color: var(--muted); font-size: 15px; } .cy b { display: block; color: var(--ink); font-size: 18px; margin-bottom: 2px; }
+.cy.hl { background: linear-gradient(120deg, #0a8cff, #0057c8); border-color: transparent; } .cy.hl span { color: #e6f1ff; } .cy.hl svg { background: #fff; color: #0062d6; }
+.arr { display: block; width: 2px; height: 26px; margin: 0 auto; background: linear-gradient(var(--sky), var(--blue)); position: relative; }
+.arr::after { content: ""; position: absolute; left: 50%; bottom: -2px; width: 10px; height: 10px; border-right: 2px solid var(--blue); border-bottom: 2px solid var(--blue); transform: translateX(-50%) rotate(45deg); }
+.how-body { margin-top: 40px; padding: 30px 32px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--blue); }
+.how-body .lede { margin-top: 0; color: var(--ink); font-weight: 600; }
+.how-body .body { max-width: 80ch; }
+@media (max-width: 560px) { .how-body { padding: 22px 18px; } }
+.qa { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; max-width: none !important; }
+@media (max-width: 760px) { .qa { grid-template-columns: 1fr; } }
+.qa h3 { font-size: 16px; letter-spacing: 0; color: var(--ink); margin: 6px 0 4px; }
+.qa p { margin: 0 0 6px !important; }
+.links .lf { border: 1px solid var(--line); border-radius: 14px; background: var(--field); }
+.links .lf summary { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; font-weight: 600; cursor: pointer; list-style: none; color: var(--ink); }
+.links .lf summary::-webkit-details-marker { display: none; }
+.links .lf summary span { color: var(--sky); font-size: 20px; line-height: 1; }
+.links .lf[open] summary span { transform: rotate(45deg); }
+.links .lf:hover { border-color: var(--sky); }
+.lf-body { padding: 0 20px 14px; color: var(--muted); font-size: 15px; }
+.lf-body h3 { font-size: 15.5px; letter-spacing: 0; color: var(--ink); margin: 12px 0 4px; }
+.lf-body p { margin: 0; }
+.ct { align-items: start !important; }
+
+/* solution panels: same style as challenge panels */
+.spanels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+@media (max-width: 760px) { .spanels { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 28px; } }
+.spanel2 .sb { aspect-ratio: 259 / 200; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 22px; text-align: center; background: #0a8cf0; }
+.spanel2 .sb svg { width: 96px; height: 96px; color: #fff; stroke-width: 1.6; }
+.spanel2 .sb p { margin: 0; color: #fff; font-size: 17px; font-weight: 600; line-height: 1.35; max-width: 24ch; }
+@media (max-width: 760px) { .spanel2 .sb { aspect-ratio: auto; padding: 18px 12px; gap: 10px; } .spanel2 .sb svg { width: 56px; height: 56px; } .spanel2 .sb p { font-size: 14px; } }
+.panel figcaption { min-height: 64px; }
+.spanel2 figcaption { min-height: 72px; }
+
+/* ================= professional polish (design only) ================= */
+/* 3. rhythm: one spacing, no glow lines, alternating backgrounds */
+section::before { display: none !important; content: none !important; }
+section { padding: 96px 0 !important; border: 0 !important; }
+.hero { padding: 64px 0 80px !important; background: radial-gradient(900px 500px at 80% 10%, rgba(0,136,255,.28), transparent 70%), #081d4e !important; }
+.hero::before { display: none !important; }
+#importance { background: #061641 !important; }
+#challenges { background: #081d4e !important; }
+#solution { background: #061641 !important; }
+#how { background: #081d4e !important; }
+#pricing { background: #061641 !important; }
+#privacy { background: #081d4e !important; }
+#contact { background: #061641 !important; }
+.foot2 { background: #04102f !important; border-top: 1px solid #1a3672 !important; }
+.foot2::before { display: none !important; }
+@media (max-width: 560px) { section { padding: 64px 0 !important; } .hero { padding: 36px 0 56px !important; } }
+
+/* 2. two card styles: A = standard, B = highlight */
+.how3 .st, .plan, .pv, .pv-card, .ct, .cy, .lf, .links a, .faq2 > div, .story2, .guide-box, .g-sec, .g-sub {
+  background: #0d2766 !important; border: 1px solid #1f3f86 !important; border-radius: 18px !important; box-shadow: none !important;
+}
+.links a, .lf, .g-sub { background: #0a2159 !important; border-radius: 14px !important; }
+.plan.pro, .cy.hl { background: linear-gradient(160deg, #0a8cff, #0058cc) !important; border-color: transparent !important; }
+.plan.pro .price small, .plan.pro li { color: #fff; }
+.plan.pro li::before { border-color: #fff !important; }
+.how3 .st:hover, .plan:hover, .pv:hover, .faq2 > div:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(0,0,0,.35) !important; }
+.panel { border-radius: 18px !important; }
+
+/* 1. solution: a bold highlight card that answers the challenge panels */
+.how-body { background: linear-gradient(150deg, #0a8cff 0%, #0058cc 100%) !important; border: 0 !important; border-radius: 18px !important;
+  padding: 40px 44px !important; margin-top: 40px !important; box-shadow: 0 24px 50px rgba(0,40,120,.45) !important;
+  display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; position: relative; overflow: hidden; }
+.how-body::after { content: ""; position: absolute; right: -80px; top: -80px; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,.08); }
+.how-body .lede { grid-column: 1 / -1; color: #fff !important; font-size: 24px !important; font-weight: 700; margin: 0 0 6px !important; letter-spacing: -0.01em; }
+.how-body .body { color: #e6f1ff !important; font-size: 17px !important; margin-top: 12px !important; }
+.how-body .body.strong { grid-column: 1 / -1; color: #fff !important; font-size: 19px !important; margin-top: 22px !important; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.25); }
+@media (max-width: 760px) { .how-body { grid-template-columns: 1fr; padding: 26px 22px !important; } .how-body .lede { font-size: 20px !important; } }
+.how-body .body.solo { grid-column: 1 / -1; margin: 0 !important; max-width: none; color: #fff !important; font-size: 22px !important; font-weight: 600; line-height: 1.5; position: relative; z-index: 1; }
+@media (max-width: 760px) { .how-body .body.solo { font-size: 18px !important; } }
+
+/* 4. readable small text */
+.fine { font-size: 15px !important; color: #c3d3ee !important; }
+.fine a, .pv-card a { color: #a7ddfd !important; font-weight: 600; }
+.ba-note, .lf-body, .g-intro, .g-body { color: #c3d3ee !important; }
+.pills li, .proof li { color: #c3d3ee !important; }
+
+/* 5. calmer hero: one phone, live card pinned to it */
+.hero .stage .back { display: none !important; }
+.hero .stage { min-height: 0 !important; justify-content: center; }
+.hero .stage .front { width: 270px !important; }
+.hero .live { left: auto !important; right: calc(50% + 80px) !important; bottom: 60px !important; padding: 10px 14px !important; min-width: 0 !important; border-radius: 14px !important; }
+.hero .live .t { font-size: 32px !important; }
+.hero .live .row { font-size: 10.5px !important; gap: 12px; }
+.hero .live .nx { font-size: 13px !important; }
+@media (max-width: 860px) { .hero .stage .front { width: 250px !important; } .hero .live { position: relative !important; right: auto !important; bottom: auto !important; margin: -40px auto 0 !important; } }
+
+/* 6. clear hierarchy for expanding bars */
+.guide-box { background: linear-gradient(150deg, #123a8a, #0d2766) !important; border: 1px solid #2f5cb8 !important; }
+.guide-box > summary { padding: 22px 24px !important; font-size: 18px !important; color: #fff !important; }
+.guide-box > summary::before { content: ""; width: 34px; height: 34px; flex: none; margin-right: 14px; border-radius: 10px; background: #0088ff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z'/%3E%3Cpath d='M8 7h8M8 11h6'/%3E%3C/svg%3E") center / 20px no-repeat; }
+.guide-box > summary { align-items: center; justify-content: flex-start !important; }
+.guide-box > summary::after { margin-left: auto; }
+.hero .live .row span { white-space: nowrap; }
+.story2 { background: transparent !important; border: 0 !important; border-top: 1px solid #1f3f86 !important; border-radius: 0 !important; margin-top: 28px !important; }
+.story2 summary { padding: 18px 0 !important; color: #c3d3ee !important; font-weight: 500 !important; font-size: 15.5px; }
+.story2 .body { padding: 0 0 16px !important; }
+.hero-grid { grid-template-columns: 1.35fr .65fr !important; }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr !important; } }
 </style>
 </head>
 <body>
@@ -239,12 +481,12 @@ footer img { height: 34px; width: auto; }
   <div class="wrap nav">
     <a class="brand" href="#top"><img src="img/logo-banner.png" alt="Cricket Training Timer"></a>
     <ul id="nav-links">
-      <li><a href="#challenges">Challenges</a></li>
+      <li><a href="#importance">Why fairness</a></li>
+      <li><a href="#challenges">The challenge</a></li>
+      <li><a href="#solution">The solution</a></li>
       <li><a href="#how">How it works</a></li>
-      <li><a href="#guide">User guide</a></li>
-      <li><a href="#features">Features</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#tips">Tips</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -258,54 +500,76 @@ footer img { height: 34px; width: auto; }
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="kicker">Live batting time for cricket training</p>
-        <h1>A fair hit in the nets <span>for every player.</span></h1>
-        <p class="lede">Cricket Training Timer automates batting time at training, so every player gets an equal chance to bat, regardless of when they arrive or how many nets are available.</p>
+        <p class="kicker">Real-time net session management</p>
+        <h1>Every player gets <span>a fair hit in the nets.</span></h1>
+        <p class="lede">Cricket Training Timer makes it easier for teams to share limited training time and net space fairly among all players.</p>
         <div class="cta-row">
           <a class="badge" href="https://apps.apple.com/au/app/cricket-training-timer/id6821684872"><img src="img/app-store-badge.svg" alt="Download on the App Store"></a>
           <a class="btn btn-ghost" href="#how">See how it works</a>
         </div>
+        <ul class="proof"><li>Set up in 30 seconds</li><li>No account needed</li></ul>
       </div>
       <div class="stage">
         <img class="back" src="img/phone-home.png" alt="Club home screen">
-        <img class="front" src="img/phone-live.png" alt="Live session screen showing two nets, each counting down 14:49, with who is batting and who is next">
+        <img class="front" src="img/phone-live.png" alt="Live session screen showing two nets counting down, with who is batting and who is next">
+        <div class="live" id="live" aria-hidden="true">
+          <div class="row"><span><i class="dot"></i>Net 1 · live</span><span>Batting</span></div>
+          <div class="t" id="live-t">0:20</div>
+          <div class="nx" id="live-nx">Next in: <b>Priya S</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="importance">
+    <div class="wrap ab-grid">
+      <div class="rv">
+        <p class="kicker">The importance of fairness</p>
+        <h2>Stronger clubs start with <em>better player experiences.</em></h2>
+        <p class="lede">Sustainable cricket clubs attract, retain and engage players. Players who feel valued, included and fairly treated are more likely to return, participate and contribute financially.</p>
+      </div>
+      <div class="cycle rv" style="--rd:150ms" aria-label="How player experience builds a stronger club">
+        <div class="cy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6C19 16.6 12 21 12 21z"/></svg><span><b>Players feel valued</b>Included and fairly treated</span></div>
+        <i class="arr"></i>
+        <div class="cy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg><span><b>Players come back</b>Return, participate and contribute</span></div>
+        <i class="arr"></i>
+        <div class="cy hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg><span><b>A stronger club</b>More sustainable, season after season</span></div>
       </div>
     </div>
   </section>
 
   <section class="problem" id="challenges">
     <div class="wrap">
-      <p class="kicker">The challenges</p>
-      <h2>Running training sessions by hand</h2>
-      <p class="lede">These challenges call for a more structured, automated approach to managing training, with fair use of the nets so players can focus on their training.</p>
-      <div class="grid4">
-        <div class="chal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Inconsistent arrival times</h3><p>Evening sessions start around the time most players finish work, and players arrive at any moment.</p></div>
-        <div class="chal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12M6 21h12"/><path d="M7 3c0 4 5 5 5 9s-5 5-5 9M17 3c0 4-5 5-5 9s5 5 5 9"/></svg><h3>No real-time adjustment</h3><p>Without a way to adjust on the fly, sharing batting time fairly is hard.</p></div>
-        <div class="chal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/></svg><h3>Limited facilities</h3><p>The number of nets varies, which changes how many players can bat at once.</p></div>
-        <div class="chal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/></svg><h3>Volunteer management</h3><p>Players or volunteers run the session while trying to train, and errors creep in.</p></div>
-        <div class="chal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20a6.5 6.5 0 0 1 13 0"/><path d="M17 9l4 4M21 9l-4 4"/></svg><h3>No dedicated coordinators</h3><p>Local clubs often have no staff to run sessions, so time management gets neglected.</p></div>
-        <div class="chal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M8 20h8M5 7h14"/><path d="M5 7l-3 6h6zM19 7l-3 6h6z"/></svg><h3>Uneven batting time</h3><p>Some players bat more or less than others, leading to dissatisfaction.</p></div>
-        <div class="chal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg><h3>Administrative burden</h3><p>Batting orders, timing and records take constant manual work.</p></div>
-        <div class="chal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l6 6 4-4 8 8"/><path d="M21 11v6h-6"/></svg><h3>Training quality suffers</h3><p>Time spent managing the session takes focus away from skills and coaching.</p></div>
+      <p class="kicker">The challenge for cricket teams</p>
+      <h2>Net sessions are <em>hard to run fairly.</em></h2>
+      <div class="panels">
+        <figure class="panel rv" style="--rd:0ms"><figcaption><span class="pn">01</span><span class="pt">Limited time</span></figcaption><img src="img/challenge-limited-time.png" alt="Limited time: a coach checking his watch with a 90-minute stopwatch"></figure>
+        <figure class="panel rv" style="--rd:120ms"><figcaption><span class="pn">02</span><span class="pt">Limited nets</span></figcaption><img src="img/challenge-limited-nets.png" alt="Limited nets: three training nets side by side"></figure>
+        <figure class="panel rv" style="--rd:240ms"><figcaption><span class="pn">03</span><span class="pt">Lots of players</span></figcaption><img src="img/challenge-lots-of-players.png" alt="Lots of players: a large squad with their kit bags"></figure>
+        <figure class="panel rv" style="--rd:360ms"><figcaption><span class="pn">04</span><span class="pt">Late arrivals</span></figcaption><img src="img/challenge-late-arrivals.png" alt="Late arrivals: a phone message saying 'Running late from work, sorry'"></figure>
       </div>
+      <p class="lede panels-after rv" style="--rd:520ms">Limited time, limited nets, large squads and unpredictable arrival times make training difficult to manage fairly. Coaches must continually allocate limited resources while ensuring every player receives a fair opportunity to practise.</p>
     </div>
   </section>
 
-  <section class="aim" aria-label="The aim">
+  <section class="problem solution" id="solution">
     <div class="wrap">
-      <p class="big">The aim is simple: a fair hit in the nets for every player at training.</p>
-      <p class="small">The app removes the manual management of training sessions, so every player gets an equal chance to bat, regardless of when they arrive or how many nets are available.</p>
+      <p class="kicker">The solution</p>
+      <h2>Cricket Training Timer <em>solves this problem.</em></h2>
+      <div class="how-body rv">
+        <p class="body solo">The app automates batting rotations, balances net queues and allocates batting time in real time. As players arrive, the app adjusts the schedule to accommodate them.</p>
+      </div>
     </div>
   </section>
 
   <section id="how">
     <div class="wrap">
       <p class="kicker">How it works</p>
-      <h2>Set up once, then run each session</h2>
-      <div class="steps">
-        <div class="step"><div class="n num">01</div><h3>Create your club</h3><p>Enter your club name and add players. Add players now or at any time later.</p></div>
-        <div class="step"><div class="n num">02</div><h3>Set up the session</h3><p>Choose the date, start and finish times, nets and changeover time, then add the players who have arrived.</p></div>
-        <div class="step"><div class="n num">03</div><h3>Start the session</h3><p>Batting time is calculated and counts down in each net. Add players as they arrive and open or close nets as you go.</p></div>
+      <h2>Making fairer training <em>easier.</em></h2>
+      <div class="how3">
+        <div class="st rv"><div class="n">1</div><h3>Create your club</h3><p>Enter your club name and add players. Add more at any time.</p><div class="shot"><img src="img/phone-home.png" alt="Club home screen"></div></div>
+        <div class="st rv" style="--rd:120ms"><div class="n">2</div><h3>Set up the session</h3><p>Choose your times, nets and changeover, then add who's arrived.</p><div class="shot"><img src="img/phone-settings.png" alt="Session settings screen"></div></div>
+        <div class="st rv" style="--rd:240ms"><div class="n">3</div><h3>Hit start</h3><p>Batting time counts down in each net. Add late arrivals as they turn up.</p><div class="shot"><img src="img/phone-live.png" alt="Live session screen"></div></div>
       </div>
       <details class="guide-box" id="guide">
         <summary>User guide: step-by-step instructions</summary>
@@ -573,40 +837,10 @@ footer img { height: 34px; width: auto; }
         </div>
       </details>
     </div>
-  </section>
-
-
-  <section class="features" id="features">
-    <div class="wrap">
-      <p class="kicker">Features</p>
-      <h2>Key features</h2>
-      <div class="grid4">
-        <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><h3>Automated time allocation</h3><p>Fair distribution of batting time for all players, regardless of arrival time.</p></div>
-        <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg><h3>Real-time adjustments</h3><p>Batting times update as players arrive or leave and as nets open or close.</p></div>
-        <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/></svg><h3>Open and close nets</h3><p>Change the nets in use at any point during the session.</p></div>
-        <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h11M10 8l4 4-4 4"/><rect x="16" y="4" width="5" height="16" rx="1"/></svg><h3>Automatic net allocation</h3><p>Players can be assigned to the open net where they'll bat soonest, or moved by hand.</p></div>
-        <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><h3>Next batsman alerts</h3><p>An alert when a player's batting time is approaching, so they're padded up and ready.</p></div>
-        <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 10v4M12 10v4M16 10v4"/></svg><h3>Live countdowns</h3><p>Each open net counts down the current batter's time in minutes and seconds.</p></div>
-        <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h13l-4-4M17 17H4l4 4"/></svg><h3>Changeover time</h3><p>A short break between batters for safe transitions, 30 seconds by default.</p></div>
-        <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><h3>Statistics and reports</h3><p>Attendance and batting time by session and season, with export to CSV.</p></div>
-      </div>
     </div>
   </section>
 
-  <section id="screens">
-    <div class="wrap">
-      <p class="kicker">Inside the app</p>
-      <h2>The app at a glance</h2>
-      <div class="screens">
-        <figure><img src="img/phone-home.png" alt="Club home screen with resume session, start new session, manage players, view reports and settings" loading="lazy"><figcaption>Club home<small>Everything starts from here</small></figcaption></figure>
-        <figure><img src="img/phone-live.png" alt="Live session screen with a countdown for each open net" loading="lazy"><figcaption>Live session<small>A card for each open net</small></figcaption></figure>
-        <figure><img src="img/phone-players.png" alt="Players list showing who is batting now, next and in queue" loading="lazy"><figcaption>Players list<small>Every player, their status and net</small></figcaption></figure>
-        <figure><img src="img/phone-settings.png" alt="Settings screen with session, live batting start and nets options" loading="lazy"><figcaption>Settings<small>Your usual training settings</small></figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing" style="padding-top: 0;">
+  <section id="pricing">
     <div class="wrap">
       <p class="kicker">Pricing</p>
       <h2>Free and Pro</h2>
@@ -640,57 +874,46 @@ footer img { height: 34px; width: auto; }
     </div>
   </section>
 
-  <section id="privacy" style="padding-top: 0;">
+  <section id="privacy">
     <div class="wrap">
       <p class="kicker">Privacy</p>
-      <h2>Your data stays on your phone</h2>
-      <div class="privacy-band">
-        <div><b>No account needed</b><span>No sign-up, no password and no email.</span></div>
-        <div><b>Never sent anywhere</b><span>Stored only on your phone. No tracking and no ads.</span></div>
-        <div><b>Delete all data</b><span>Remove your club, players and reports at any time from Settings.</span></div>
+      <h2>Your data stays <em>on your phone.</em></h2>
+      <div class="pv3">
+        <div class="pv rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><h3>No account needed</h3><p>No sign-up, no password and no email.</p></div>
+        <div class="pv rv" style="--rd:100ms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M11 18h2"/></svg><h3>Never sent anywhere</h3><p>Stored only on your phone. No tracking and no ads.</p></div>
+        <div class="pv rv" style="--rd:200ms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15"/></svg><h3>Delete all data</h3><p>Remove your club, players and reports at any time from Settings.</p></div>
       </div>
       <p class="fine">Read the full <a href="https://jack292929292.github.io/cricket-training-timer/privacy.html">privacy policy</a>.</p>
     </div>
   </section>
 
-  <section id="faq" style="padding-top: 0;">
+  <section id="contact">
     <div class="wrap">
-      <p class="kicker">FAQ</p>
-      <h2>Tips and questions</h2>
-      <div class="faq">
-        <div><h3>Do players need the app?</h3><p>No. One phone runs the whole session.</p></div>
-        <div><h3>Does it need internet?</h3><p>No. Sessions run entirely on your phone, so poor reception at the ground isn't a problem.</p></div>
-        <div><h3>A player arrived late.</h3><p>Tap Add Player on the live screen. They join the queue and batting times update.</p></div>
-        <div><h3>A player has to leave early.</h3><p>Check them out of training. If they come back, choose Back at training.</p></div>
-        <div><h3>Can I set limits on batting time?</h3><p>Yes. Set the shortest and longest time each player should bat. If there isn't enough time for everyone to reach the minimum, everyone still gets a turn, with the time shared as evenly as possible.</p></div>
-        <div><h3>Is it a subscription?</h3><p>No. Pro is a one-off purchase through the App Store.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="wrap contact-card">
-      <div>
-        <p class="kicker">Contact</p>
-        <h2>Need more help?</h2>
-        <p class="lede">Email us about the app.</p>
-        <div class="mail">
-          <code id="email">jace_kayne@hotmail.com</code>
-          <button class="btn btn-ghost btn-sm" id="copy" type="button">Copy email</button>
-          <a class="btn btn-primary btn-sm" href="mailto:jace_kayne@hotmail.com?subject=Cricket%20Training%20Timer">Email us</a>
+      <div class="ct rv">
+        <div>
+          <p class="kicker">Contact</p>
+          <h2>Need <em>more help?</em></h2>
+          <p class="lede">Email us about the app.</p>
+          <div class="mail">
+            <code id="email">jace_kayne@hotmail.com</code>
+            <button class="btn btn-ghost btn-sm" id="copy" type="button">Copy email</button>
+            <a class="btn btn-primary btn-sm" href="mailto:jace_kayne@hotmail.com?subject=Cricket%20Training%20Timer">Email us</a>
+          </div>
+        </div>
+        <div class="links">
+          <details class="lf" id="tips"><summary>Tips and questions <span>+</span></summary><div class="lf-body">
+          <div><h3>Do players need the app?</h3><p>No. One phone runs the whole session.</p></div>
+          <div><h3>Does it need internet?</h3><p>No. Sessions run entirely on your phone, so poor reception at the ground isn't a problem.</p></div>
+          <div><h3>A player arrived late.</h3><p>Tap Add Player on the live screen. They join the queue and batting times update.</p></div>
+          <div><h3>A player has to leave early.</h3><p>Check them out of training. If they come back, choose Back at training.</p></div>
+          <div><h3>Can I set limits on batting time?</h3><p>Yes. Set the shortest and longest time each player should bat. If there isn't enough time for everyone to reach the minimum, everyone still gets a turn, with the time shared as evenly as possible.</p></div>
+          <div><h3>Is it a subscription?</h3><p>No. Pro is a one-off purchase through the App Store.</p></div>
+        </div></details>
+          <a href="https://jack292929292.github.io/cricket-training-timer/privacy.html">Privacy policy <span>&rarr;</span></a>
+          <a href="https://apps.apple.com/au/app/cricket-training-timer/id6821684872">App Store <span>&rarr;</span></a>
         </div>
       </div>
-      <div class="links">
-        <a href="#faq">Tips and questions <span>&rarr;</span></a>
-        <a href="https://jack292929292.github.io/cricket-training-timer/privacy.html">Privacy policy <span>&rarr;</span></a>
-        <a href="https://apps.apple.com/au/app/cricket-training-timer/id6821684872">App Store <span>&rarr;</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="story" id="story">
-    <div class="wrap">
-      <details>
+      <details class="story2">
         <summary>The story behind the app</summary>
         <div class="body">
           <p>Cricket Training Timer was first developed in 2022 by Jack Payne, a club cricketer in Perth, Western Australia.</p>
@@ -702,13 +925,34 @@ footer img { height: 34px; width: auto; }
   </section>
 </main>
 
-<footer>
+<footer class="foot2">
   <div class="wrap">
-    <img src="img/logo-banner.png" alt="Cricket Training Timer">
+    <img src="img/logo-clear.png" alt="Cricket Training Timer">
+    <nav><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#tips">Tips and questions</a><a href="#contact">Contact</a></nav>
     <span>&copy; 2026 Jack Payne. Made in Perth, Western Australia.</span>
   </div>
 </footer>
 
+<script>
+document.documentElement.classList.add("js");
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll(".rv").forEach(function (el) { io.observe(el); });
+  } else { document.querySelectorAll(".rv").forEach(function (el) { el.classList.add("in"); }); }
+  var tEl = document.getElementById("live-t"), nEl = document.getElementById("live-nx"), card = document.getElementById("live");
+  var names = ["Priya S", "Alex", "Ali H", "Olivia D", "Sam T"], i = 0, t = 20;
+  function draw() {
+    var m = Math.floor(t / 60), s = t % 60;
+    tEl.textContent = m + ":" + (s < 10 ? "0" : "") + s;
+    if (t <= 10) { card.classList.add("alert"); nEl.innerHTML = "Pad up: <b>" + names[i] + "</b>"; }
+    else { card.classList.remove("alert"); nEl.innerHTML = "Next in: <b>" + names[i] + "</b>"; }
+  }
+  draw();
+  if (!reduce) setInterval(function () { t--; if (t < 0) { t = 20; i = (i + 1) % names.length; } draw(); }, 1000);
+})();
+</script>
 <script>
 (function () {
   var mb = document.getElementById("menu-btn"), links = document.getElementById("nav-links");
@@ -718,6 +962,9 @@ footer img { height: 34px; width: auto; }
   });
   links.addEventListener("click", function (e) {
     if (e.target.tagName === "A") { links.classList.remove("open"); mb.setAttribute("aria-expanded", "false"); }
+  });
+  document.querySelectorAll('a[href="#tips"]').forEach(function (l) {
+    l.addEventListener("click", function () { document.getElementById("tips").open = true; });
   });
   document.querySelectorAll('a[href="#guide"]').forEach(function (l) {
     l.addEventListener("click", function () { document.getElementById("guide").open = true; });
